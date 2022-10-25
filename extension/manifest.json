@@ -1,0 +1,25 @@
+{
+	"name": "TabAggregation",
+	"action": {
+		"default_icon": {
+			"16": "./icon_16.png",
+			"32": "./icon_32.png",
+			"48": "./icon_48.png",
+			"128": "./icon_128.png"
+		},
+		"default_popup": "popup.html"
+	},
+	"description": "Aggregate tabs into this window.",
+	"homepage_url": "https://github.com/azulamb/TabAggregation",
+	"manifest_version": 3,
+	"permissions": [
+		"tabs"
+	],
+	"icons": {
+		"16": "./icon_16.png",
+		"32": "./icon_32.png",
+		"48": "./icon_48.png",
+		"128": "./icon_128.png"
+	},
+	"version": "1.0"
+}

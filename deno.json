@@ -1,0 +1,15 @@
+{
+	"tasks": {
+	},
+	"fmt": {
+		"files": {
+			"include": ["./extension"]
+		},
+		"options": {
+			"useTabs": true,
+			"indentWidth": 4,
+			"lineWidth": 160,
+			"singleQuote": true
+		}
+	}
+}

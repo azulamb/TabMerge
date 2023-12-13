@@ -1,3 +1,4 @@
 {
-  "app_name": { "message": "TabMerge" }
+	"app_name": { "message": "TabMerge" },
+	"app_description": { "message": "TabMerge is tabs into this window." }
 }

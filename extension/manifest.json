@@ -1,5 +1,5 @@
 {
-	"name": "TabAggregation",
+	"name": "__MSG_app_name__",
 	"default_locale": "en",
 	"action": {
 		"default_icon": {
@@ -10,8 +10,8 @@
 		},
 		"default_popup": "popup.html"
 	},
-	"description": "Aggregate tabs into this window.",
-	"homepage_url": "https://github.com/azulamb/TabAggregation",
+	"description": "__MSG_app_description__",
+	"homepage_url": "https://github.com/azulamb/TabMerge",
 	"manifest_version": 3,
 	"permissions": [
 		"tabs"

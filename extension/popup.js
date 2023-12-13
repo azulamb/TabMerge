@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			}, (tabs) => {
 				const tabIds = [];
 				for (const tab of tabs) {
-					console.log(`${tab.id} ${tab.url}`);
+					addLog(tab.url);
 					tabIds.push(tab.id);
 				}
 				resolve(tabIds);
@@ -34,26 +34,54 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	document.getElementById('aggregate').addEventListener('click', () => {
+	const isDryRun = ((checkbox) => {
+		return () => {
+			return checkbox.checked;
+		};
+	})(document.getElementById('dry_run'));
+
+	const [addLog, clearLog] = ((checkbox, textarea) => {
+		checkbox.addEventListener('change', () => {
+			textarea.disabled = !checkbox.checked;
+		});
+		textarea.addEventListener('focus', () => {
+			textarea.select();
+		});
+		return [
+			(url) => {
+				if (!checkbox.checked) {
+					return;
+				}
+				textarea.value += `${url}\n`;
+			},
+			() => {
+				textarea.value = '';
+			},
+		];
+	})(document.getElementById('enable_log'), document.getElementById('log'));
+
+	document.getElementById('merge').addEventListener('click', () => {
 		const url = document.getElementById('url').value;
 		if (!url) {
 			document.getElementById('count').textContent = '0';
 			return;
 		}
+		clearLog();
 		Promise.all([
 			GetWindowId(),
 			CountAllTabs(),
 			SearchTabIds(url),
 		]).then((result) => {
 			const [windowId, total, tabIds] = result;
-			console.log(windowId, total, tabIds);
-			chrome.tabs.move(
-				tabIds,
-				{
-					windowId: windowId,
-					index: -1,
-				},
-			);
+			if (!isDryRun()) {
+				chrome.tabs.move(
+					tabIds,
+					{
+						windowId: windowId,
+						index: -1,
+					},
+				);
+			}
 			document.getElementById('count').textContent = `${tabIds.length} / ${total}`;
 		});
 	});

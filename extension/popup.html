@@ -2,17 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TabAggregation</title>
+<title>TabMerge</title>
 <script src='popup.js'></script>
 <style>
 body { width: 15rem; display: grid; grid-template-rows: 1.5rem 1.5rem 1.5rem; }
 #count { line-height: 1.5rem; text-align: right; }
 #count::before { content: 'counts:'; }
+textarea:disabled { display: none; }
 </style>
 </head>
 <body>
 	<input placeholder="https://example.com/*" id="url">
-	<button id="aggregate">Aggregation</button>
+	<button id="merge">Merge</button>
+	<div>
+		<label>
+			<input type="checkbox" id="dry_run">Dry run
+		</label>
+		<label>
+			<input type="checkbox" id="enable_log" checked>Enable log
+		</label>
+	</div>
+	<textarea id="log" readonly placeholder="URL list." rows="5"></textarea>
 	<div id="count"></div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 {
 	"name": "TabAggregation",
+	"default_locale": "en",
 	"action": {
 		"default_icon": {
 			"16": "./icon_16.png",

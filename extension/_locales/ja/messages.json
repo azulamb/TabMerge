@@ -1,4 +1,3 @@
 {
-	"app_name": { "message": "TabMerge" },
-	"app_description": { "message": "TabMergeは1つのウィンドウにタブを集めます。" }
+  "app_name": { "message": "タブ集合" }
 }
